@@ -83,4 +83,16 @@ public class ClienteResource {
         response.entity(resultado);
         return response.build();
     }
+
+    @POST
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response login(ClienteTO cliente) {
+        boolean isAuthenticated = clienteBO.autenticarCliente(cliente.getCpf(), cliente.getSenha());
+        if (isAuthenticated) {
+            return Response.ok(true).build(); // 200 - Login bem-sucedido
+        }
+        return Response.ok(false).build(); // 200 - Credenciais inválidas
+    }
 }

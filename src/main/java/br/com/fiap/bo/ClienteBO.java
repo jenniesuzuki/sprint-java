@@ -31,4 +31,9 @@ public class ClienteBO {
         clienteDAO = new ClienteDAO();
         return clienteDAO.updateCliente(cliente);
     }
+
+    public boolean autenticarCliente(String cpf, String senha) {
+        clienteDAO = new ClienteDAO();
+        return clienteDAO.autenticarCliente(cpf, senha);
+    }
 }

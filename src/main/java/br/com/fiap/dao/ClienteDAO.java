@@ -107,4 +107,19 @@ public class ClienteDAO extends Repository{
         return null;
     }
 
+    public boolean autenticarCliente(String cpf, String senha) {
+        String sql = "select * from chal_usuario where cpf = ? and senha = ?";
+        try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
+            ps.setString(1, cpf);
+            ps.setString(2, senha); // Lembre-se de que a senha deve estar hashada na prática
+            ResultSet rs = ps.executeQuery();
+            return rs.next(); // Retorna true se encontrou um registro
+        } catch (SQLException e) {
+            System.out.println("Erro ao autenticar: " + e.getMessage());
+        } finally {
+            closeConnection();
+        }
+        return false;
+    }
+
 }
