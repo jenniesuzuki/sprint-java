@@ -33,8 +33,4 @@ public class OrcamentoBO {
         return orcamentoDAO.updateOrcamento(orcamento);
     }
 
-//    public float calcularOrcamento(float valorProduto, int quantidade, float maoDeObra, float taxa) {
-//        float orcamento = ((1 + (taxa / 100))) * ((valorProduto * quantidade) + maoDeObra);
-//        return orcamento;
-//    }
 }

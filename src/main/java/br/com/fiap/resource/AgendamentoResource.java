@@ -62,7 +62,7 @@ public class AgendamentoResource {
         if (agendamentoBO.deleteAgendamento(idAgendamento)) {
             response = Response.status(204);
         } else {
-            response = Response.status(404); // 404 NOT FOUND
+            response = Response.status(404);
         }
         return response.build();
     }

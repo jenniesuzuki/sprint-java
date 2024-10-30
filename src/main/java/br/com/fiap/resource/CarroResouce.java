@@ -19,7 +19,7 @@ public class CarroResouce {
         ArrayList<CarroTO> resultado = carroBO.findAllCarros();
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.ok(); // 200
+            response = Response.ok();
         } else {
             response = Response.status(404);
         }
@@ -34,7 +34,7 @@ public class CarroResouce {
         CarroTO resultado = carroBO.findByPlaca(placa);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.ok(); // 200
+            response = Response.ok();
         } else {
             response = Response.status(404);
         }
@@ -48,9 +48,9 @@ public class CarroResouce {
         CarroTO resultado = carroBO.saveCarro(carro);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.created(null); // 201
+            response = Response.created(null);
         } else {
-            response = Response.status(400); // Bad Request
+            response = Response.status(400);
         }
         response.entity(resultado);
         return response.build();
@@ -61,7 +61,7 @@ public class CarroResouce {
     public Response deleteCarro(@PathParam("placa") String placa) {
         Response.ResponseBuilder response = null;
         if (carroBO.deleteCarro(placa)) {
-            response = Response.status(204); // No content
+            response = Response.status(204);
         } else {
             response = Response.status(404);
         }
@@ -76,9 +76,9 @@ public class CarroResouce {
         CarroTO resultado = carroBO.updateCarro(carro);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.created(null); // 201 - Created
+            response = Response.created(null);
         } else {
-            response = Response.status(400); // 400 - BAD REQUEST
+            response = Response.status(400);
         }
         response.entity(resultado);
         return response.build();

@@ -33,9 +33,9 @@ public class CentroAutomotivoResource {
         CentroAutomotivoTO resultado = centroAutomotivoBO.findByCep(cep);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.ok(); // 200 - Ok
+            response = Response.ok();
         } else {
-            response = Response.status(404); // 404 - Not Found
+            response = Response.status(404);
         }
         response.entity(resultado);
         return response.build();
@@ -47,9 +47,9 @@ public class CentroAutomotivoResource {
         CentroAutomotivoTO resultado = centroAutomotivoBO.saveCentro(centro);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.created(null); // 201 - CREATED
+            response = Response.created(null);
         } else {
-            response = Response.status(400); // 400 - BAD REQUEST
+            response = Response.status(400);
         }
         response.entity(resultado);
         return response.build();

@@ -111,9 +111,9 @@ public class ClienteDAO extends Repository{
         String sql = "select * from chal_usuario where cpf = ? and senha = ?";
         try (PreparedStatement ps = getConnection().prepareStatement(sql)) {
             ps.setString(1, cpf);
-            ps.setString(2, senha); // Lembre-se de que a senha deve estar hashada na prática
+            ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
-            return rs.next(); // Retorna true se encontrou um registro
+            return rs.next();
         } catch (SQLException e) {
             System.out.println("Erro ao autenticar: " + e.getMessage());
         } finally {

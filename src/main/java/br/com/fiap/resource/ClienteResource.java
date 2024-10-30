@@ -19,7 +19,7 @@ public class ClienteResource {
         ArrayList<ClienteTO> resultado = clienteBO.findAllClientes();
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.ok(); // 200
+            response = Response.ok();
         } else {
             response = Response.status(404);
         }
@@ -34,7 +34,7 @@ public class ClienteResource {
         ClienteTO resultado = clienteBO.findByCpf(cpf);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.ok(); // 200
+            response = Response.ok();
         } else {
             response = Response.status(404);
         }
@@ -48,9 +48,9 @@ public class ClienteResource {
         ClienteTO resultado = clienteBO.saveCliente(cliente);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.created(null); // 201
+            response = Response.created(null);
         } else {
-            response = Response.status(400); // Bad Request
+            response = Response.status(400);
         }
         response.entity(resultado);
         return response.build();
@@ -61,9 +61,9 @@ public class ClienteResource {
     public Response deleteCliente(@PathParam("cpf") String cpf) {
         Response.ResponseBuilder response = null;
         if (clienteBO.deleteCliente(cpf)) {
-            response = Response.status(204); // No Content
+            response = Response.status(204);
         } else {
-            response = Response.status(404); // Not Found
+            response = Response.status(404);
         }
         return response.build();
     }
@@ -76,9 +76,9 @@ public class ClienteResource {
         ClienteTO resultado = clienteBO.updateCliente(cliente);
         Response.ResponseBuilder response = null;
         if (resultado != null) {
-            response = Response.created(null); // 201 - CREATED
+            response = Response.created(null);
         } else {
-            response = Response.status(400); // 400 - BAD REQUEST
+            response = Response.status(400);
         }
         response.entity(resultado);
         return response.build();
@@ -91,8 +91,8 @@ public class ClienteResource {
     public Response login(ClienteTO cliente) {
         boolean isAuthenticated = clienteBO.autenticarCliente(cliente.getCpf(), cliente.getSenha());
         if (isAuthenticated) {
-            return Response.ok(true).build(); // 200 - Login bem-sucedido
+            return Response.ok(true).build();
         }
-        return Response.ok(false).build(); // 200 - Credenciais inválidas
+        return Response.ok(false).build();
     }
 }

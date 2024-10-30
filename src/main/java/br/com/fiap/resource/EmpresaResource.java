@@ -60,9 +60,9 @@ public class EmpresaResource {
     public Response deleteEmpresa(@PathParam("id_empresa") Long idEmpresa) {
         Response.ResponseBuilder response = null;
         if (empresaBO.deleteEmpresa(idEmpresa)) {
-            response = Response.status(204); // 204 NO CONTENT
+            response = Response.status(204);
         } else {
-            response = Response.status(404); // 404 NOT FOUND
+            response = Response.status(404);
         }
         return response.build();
     }
