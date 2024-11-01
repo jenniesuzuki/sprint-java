@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.ArrayList;
 
 @Path("/techmec/carros")
-public class CarroResouce {
+public class CarroResource {
     private CarroBO carroBO = new CarroBO();
 
     @GET
